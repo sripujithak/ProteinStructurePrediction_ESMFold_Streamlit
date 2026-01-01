@@ -1,84 +1,100 @@
 # ESMFold Protein Structure Predictor
 
-**ESMFold Streamlit App** is an interactive web application designed to predict and visualize protein 3D structures from amino acid sequences. It leverages the ESMFold model (ESM-2) via the ESM Atlas API for high-accuracy predictions without requiring local heavy-duty computing resources.
+The **ESMFold Streamlit App** is an interactive web application for predicting and visualizing **3D protein structures** from amino acid sequences. It leverages the **ESMFold (ESM-2) model** via the **ESM Atlas API**, enabling high-accuracy structure prediction **without heavy local compute requirements**.
 
 ---
 
-## ⚡ Features
+## Features
 
-- **Flexible Input:** Predict structures from **FASTA file uploads** or **manual sequence entry**.
-- **Interactive 3D Visualization:** Powered by [stmol] and [py3Dmol]. 
-    - Toggle between **Cartoon** (ribbon) or **Stick** representations.
-    - Enable **Spin toggle** for dynamic rotation.
-- **Export Capabilities:** Download the predicted structure as a `.pdb` file for downstream analysis in software like PyMOL or ChimeraX.
-- **Modern UI:** Simple, responsive interface built entirely with Streamlit.
+- **Flexible input**
+  - Upload FASTA files (`.fasta`, `.fa`)
+  - Manually paste amino acid sequences
+
+- **Interactive 3D visualization**
+  - Powered by **stmol** and **py3Dmol**
+  - Switch between **Cartoon (ribbon)** and **Stick** representations
+  - Optional **spin toggle** for continuous rotation
+
+- **Export support**
+  - Download predicted structures as `.pdb` files
+  - Compatible with tools like **PyMOL** and **ChimeraX**
+
+- **Modern UI**
+  - Clean, responsive interface built with **Streamlit**
 
 ---
 
-## 🛠️ Installation
+## Installation
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/yourusername/esmfold-streamlit.git](https://github.com/yourusername/esmfold-streamlit.git)
-   cd esmfold-streamlit
+Clone the repository:
+
+    git clone https://github.com/yourusername/esmfold-streamlit.git
+    cd esmfold-streamlit
+
 Install dependencies:
 
-Bash
+    pip install -r requirements.txt
 
-pip install -r requirements.txt
-🚀 Usage
-Run the Streamlit app locally with the following command:
+---
 
-Bash
+## Usage
 
-streamlit run app.py
-Sidebar & Settings
-Upload FASTA file: Supports .fasta or .fa files.
+Run the Streamlit app locally:
 
-Manual Input: Paste raw amino acid sequences directly into the text area.
+    streamlit run app.py
 
-Visualization Style: * Cartoon: Best for viewing secondary structures (alpha-helices, beta-sheets).
+Open the provided local URL in your browser to start predicting protein structures.
 
-Stick: Best for viewing atomic-level detail and side chains.
+---
 
-Spin Structure: Toggle to keep the protein in constant motion.
+## Sidebar & Settings
 
-Predict Button: Triggers the API call to ESMFold.
+### Input Options
+- **Upload FASTA file**
+  - Supports `.fasta` and `.fa` formats
+- **Manual input**
+  - Paste raw amino acid sequences directly
 
-📂 Project Structure
+### Visualization Options
+- **Cartoon**
+  - Best for visualizing secondary structures (alpha-helices, beta-sheets)
+- **Stick**
+  - Best for atomic-level details and side chains
+- **Spin structure**
+  - Keeps the protein model rotating continuously
 
+### Prediction
+- **Predict button**
+  - Sends the sequence to the ESMFold API and renders the result
 
+---
 
-├── app.py                  # Main Streamlit application entry point
-├── requirements.txt        # Python dependencies
-├── utils/
-│   ├── __init__.py
-│   ├── fasta.py            # FASTA parsing and validation utility
-│   ├── esmfold_api.py      # ESMFold API request handling
-│   └── visualization.py    # Protein rendering and stmol configurations
-└── README.md
-Important Notes
-Sequence Limits: The ESMFold API typically has a limit for long sequences (often >400 residues). Sequences exceeding this may result in a timeout or error.
+## Project Structure
 
-Internet Connection: An active internet connection is required to communicate with the ESM Atlas API.
+    esmfold-streamlit/
+    ├── app.py
+    ├── requirements.txt
+    ├── utils/
+    │   ├── __init__.py
+    │   ├── fasta.py
+    │   ├── esmfold_api.py
+    │   └── visualization.py
+    └── README.md
 
-Contributing
-Contributions make the open-source community an amazing place to learn and create. Any contributions you make are greatly appreciated.
+---
 
-Fork the Project
+## Important Notes
 
-Create your Feature Branch (git checkout -b feature/AmazingFeature)
+- **Sequence length limits**
+  - The ESMFold API typically supports sequences up to ~400 residues
+  - Longer sequences may cause timeouts or errors
 
-Commit your Changes (git commit -m 'Add some AmazingFeature')
+- **Internet required**
+  - An active internet connection is necessary to access the ESM Atlas API
 
-Push to the Branch (git push origin feature/AmazingFeature)
+---
 
-Open a Pull Request
+## Contributing
 
-Suggested Improvements:
-
-[ ] Add Surface View visualization.
-
-[ ] Implement caching to prevent re-running the same sequence multiple times.
-
-[ ] Add pLDDT (confidence) color coding to the 3D model.
+Contributions are welcome and appreciated.
+Feel free to open an issue or submit a pull request.
