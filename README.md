@@ -1,45 +1,70 @@
-ESMFold Streamlit App
-This application provides a user-friendly web interface for predicting protein structures using the ESMFold API and visualizing them in 3D.
+ESMFold Protein Structure Predictor
 
-🚀 Installation
-Follow these steps to set up the project locally:
 
-Bash
+ESMFold Streamlit App is an interactive web application to predict and visualize protein 3D structures from amino acid sequences using the ESMFold model (ESM-2) via the ESM Atlas API
+.
 
-# Clone the repository
+It allows users to upload FASTA files or enter sequences manually, and provides an interactive 3D visualization of the predicted protein structure.
+
+
+⚡ Features
+
+Predict protein structures from:
+
+FASTA file upload
+
+Manual sequence input
+
+3D visualization with Cartoon or Stick representation
+
+Spin toggle for dynamic rotation
+
+Download PDB file of the predicted structure
+
+Simple, responsive interface built with Streamlit
+
+Run locally or deploy on Streamlit Cloud
+
+ Installation
+
+Clone the repository
+
 git clone https://github.com/yourusername/esmfold-streamlit.git
-
-# Navigate to the directory
 cd esmfold-streamlit
 
-# Install dependencies
-pip install -r requirements.txt
-🛠 Usage
-To launch the application, run the following command in your terminal:
+Install dependencies
 
-Bash
+pip install -r requirements.txt
+
+
+
+ Usage
+
+Run the Streamlit app locally:
 
 streamlit run app.py
+
 Sidebar Options
-Upload FASTA file: Upload .fasta or .fa files containing your protein sequence.
 
-Manual input: Paste amino acid sequences directly into the text area.
+Upload FASTA file: Upload .fasta or .fa file containing protein sequence.
 
-Visualization style: Choose between Cartoon (ribbon) or Stick (atomic representation).
+Manual input: Paste amino acid sequence directly.
 
-Spin structure: Toggle automatic rotation of the 3D model.
+Visualization style: Select Cartoon (ribbon) or Stick (atomic stick representation).
 
-Predict: Click this button to generate the protein structure.
+Spin structure: Enable/disable rotation.
+
+Predict: Generate the protein structure.
 
 Output
-Interactive 3D protein structure: Explore the predicted model directly in your browser.
 
-Downloadable PDB file: Export the predicted.pdb file for use in downstream analysis (e.g., PyMOL, ChimeraX).
+Interactive 3D protein structure
 
-[!NOTE] Long sequences (typically >400 residues) may experience timeouts due to limitations of the public ESMFold API.
+Downloadable predicted.pdb file for downstream analysis
 
-📂 Folder Structure
-Plaintext
+Note: Long sequences (>400 residues) may timeout on the ESMFold API.
+
+Folder Structure
 
 │
 ├── app.py                  # Main Streamlit app
@@ -50,16 +75,22 @@ Plaintext
 │   ├── esmfold_api.py      # ESMFold API functions
 │   └── visualization.py    # Protein rendering functions
 └── README.md
-🤝 Contributing
-Contributions are welcome! If you'd like to help improve this tool, consider:
 
-Adding new visualization features (e.g., surface view or pLDDT coloring).
+ Contributing
 
-Improving error handling and response caching.
+Contributions are welcome! You can:
 
-Optimizing performance for longer sequences.
+Add new visualization features (e.g., surface view)
 
-To contribute: Fork the repository, create a branch for your changes, and submit a pull request.
+Improve error handling or caching
 
-⚖️ Disclaimer
-This tool utilizes a public API. Prediction speed and service availability are dependent on the ESMFold external service provider.
+Optimize performance for long sequences
+
+Please fork the repository, create a branch for your changes, and submit a pull request.
+
+Further Reading
+For more information, read the following articles:
+
+ESM Metagenomic Atlas: The first view of the ‘dark matter’ of the protein universe
+Evolutionary-scale prediction of atomic level protein structure with a language model
+AlphaFold’s new rival? Meta AI predicts shape of 600 million proteins
