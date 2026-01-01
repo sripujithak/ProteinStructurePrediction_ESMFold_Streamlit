@@ -1,80 +1,84 @@
 # ESMFold Protein Structure Predictor
 
-**ESMFold Streamlit App** is an interactive web application to predict and visualize protein 3D structures from amino acid sequences using the ESMFold model (ESM-2) via the ESM Atlas API.
-
-It allows users to upload FASTA files or enter sequences manually, and provides an interactive 3D visualization of the predicted protein structure.
+**ESMFold Streamlit App** is an interactive web application designed to predict and visualize protein 3D structures from amino acid sequences. It leverages the ESMFold model (ESM-2) via the ESM Atlas API for high-accuracy predictions without requiring local heavy-duty computing resources.
 
 ---
 
 ## ⚡ Features
 
-Predict protein structures from:
-
-- **FASTA file upload**
-- **Manual sequence input**
-- **3D visualization** with Cartoon or Stick representation
-- **Spin toggle** for dynamic rotation
-- **Download PDB file** of the predicted structure
-- **Simple, responsive interface** built with Streamlit
-- Run locally or deploy on Streamlit Cloud
+- **Flexible Input:** Predict structures from **FASTA file uploads** or **manual sequence entry**.
+- **Interactive 3D Visualization:** Powered by [stmol] and [py3Dmol]. 
+    - Toggle between **Cartoon** (ribbon) or **Stick** representations.
+    - Enable **Spin toggle** for dynamic rotation.
+- **Export Capabilities:** Download the predicted structure as a `.pdb` file for downstream analysis in software like PyMOL or ChimeraX.
+- **Modern UI:** Simple, responsive interface built entirely with Streamlit.
 
 ---
 
-## Installation
+## 🛠️ Installation
 
-Clone the repository:
-
-```bash
-git clone https://github.com/yourusername/esmfold-streamlit.git
-cd esmfold-streamlit
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/yourusername/esmfold-streamlit.git](https://github.com/yourusername/esmfold-streamlit.git)
+   cd esmfold-streamlit
 Install dependencies:
 
-bash
-Copy code
+Bash
+
 pip install -r requirements.txt
-Usage
-Run the Streamlit app locally:
+🚀 Usage
+Run the Streamlit app locally with the following command:
 
-bash
-Copy code
+Bash
+
 streamlit run app.py
-Sidebar Options
-Upload FASTA file: Upload .fasta or .fa file containing protein sequence.
+Sidebar & Settings
+Upload FASTA file: Supports .fasta or .fa files.
 
-Manual input: Paste amino acid sequence directly.
+Manual Input: Paste raw amino acid sequences directly into the text area.
 
-Visualization style: Select Cartoon (ribbon) or Stick (atomic stick representation).
+Visualization Style: * Cartoon: Best for viewing secondary structures (alpha-helices, beta-sheets).
 
-Spin structure: Enable/disable rotation.
+Stick: Best for viewing atomic-level detail and side chains.
 
-Predict: Generate the protein structure.
+Spin Structure: Toggle to keep the protein in constant motion.
 
-Output
-Interactive 3D protein structure
+Predict Button: Triggers the API call to ESMFold.
 
-Downloadable predicted.pdb file for downstream analysis
+📂 Project Structure
 
-Note: Long sequences (>400 residues) may timeout on the ESMFold API.
 
-Folder Structure
-bash
-Copy code
-esmfold-streamlit/
-├── app.py                  # Main Streamlit app
+
+├── app.py                  # Main Streamlit application entry point
 ├── requirements.txt        # Python dependencies
 ├── utils/
 │   ├── __init__.py
-│   ├── fasta.py            # FASTA parsing utility
-│   ├── esmfold_api.py      # ESMFold API functions
-│   └── visualization.py    # Protein rendering functions
+│   ├── fasta.py            # FASTA parsing and validation utility
+│   ├── esmfold_api.py      # ESMFold API request handling
+│   └── visualization.py    # Protein rendering and stmol configurations
 └── README.md
+Important Notes
+Sequence Limits: The ESMFold API typically has a limit for long sequences (often >400 residues). Sequences exceeding this may result in a timeout or error.
+
+Internet Connection: An active internet connection is required to communicate with the ESM Atlas API.
+
 Contributing
-Contributions are welcome! You can:
+Contributions make the open-source community an amazing place to learn and create. Any contributions you make are greatly appreciated.
 
-Add new visualization features (e.g., surface view)
+Fork the Project
 
-Improve error handling or caching
+Create your Feature Branch (git checkout -b feature/AmazingFeature)
 
-Optimize performance for long sequences
+Commit your Changes (git commit -m 'Add some AmazingFeature')
 
-Please fork the repository, create a branch for your changes, and submit a pull request.
+Push to the Branch (git push origin feature/AmazingFeature)
+
+Open a Pull Request
+
+Suggested Improvements:
+
+[ ] Add Surface View visualization.
+
+[ ] Implement caching to prevent re-running the same sequence multiple times.
+
+[ ] Add pLDDT (confidence) color coding to the 3D model.
